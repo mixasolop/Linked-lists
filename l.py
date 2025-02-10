@@ -50,10 +50,12 @@ class LinkedList:
             self.InsertNode(data)
             return
         
-
         tmp = self.head
         for i in range(position-1):
             tmp = tmp.next
+            if(tmp == None):
+                print("error, wrong index!")
+                return
         tmp_next = tmp.next
         if(tmp_next == None):
             self.AppendNode(data)
@@ -62,6 +64,18 @@ class LinkedList:
         New_Node.prev = tmp
         tmp_next.prev = New_Node
         New_Node.next = tmp_next
+
+
+
+    def UpdateNode(self, position, val):
+        tmp = self.head
+        for i in range(position):
+            tmp = tmp.next
+            if(tmp == None):
+                print("error, wrong index!")
+                return
+        tmp.data = val
+
 
 
     def PrintNodes(self):
@@ -76,4 +90,7 @@ llist.AppendNode("a")
 llist.AppendNode("a")
 llist.AppendNode("a")
 llist.InsertAtIndex(0,"b")
+llist.PrintNodes()
+print("\n")
+llist.UpdateNode(1, "a")
 llist.PrintNodes()
