@@ -66,6 +66,14 @@ class LinkedList:
         New_Node.next = tmp_next
 
 
+    def RemoveFirstNode(self):
+        if(self.head == None):
+            return
+        
+        tmp = self.head.next
+        tmp.prev = None
+        self.head.next = None
+        self.head = tmp
 
     def UpdateNode(self, position, val):
         tmp = self.head
@@ -86,11 +94,14 @@ class LinkedList:
 
 llist = LinkedList()
 llist.InsertNode("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+llist.AppendNode("aa")
 llist.AppendNode("a")
 llist.AppendNode("a")
-llist.AppendNode("a")
-llist.InsertAtIndex(0,"b")
+llist.InsertAtIndex(2,"b")
 llist.PrintNodes()
 print("\n")
 llist.UpdateNode(1, "a")
+llist.PrintNodes()
+print("\n")
+llist.RemoveFirstNode()
 llist.PrintNodes()
